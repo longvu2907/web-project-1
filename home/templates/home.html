@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="main-layout">
+  <div class="profile">
+    <h1>Welcome</h1>  
+    <p>TrueBlues</p>
+    <a href="https://www.chelseafc.com/en"><img src="{% static 'images/icons/chelsea.png' %}"></a>
+  </div>
+</div>
+
+{% endblock %}

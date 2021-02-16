@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} profile {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/resume.css' %}">
+<link rel="stylesheet" href="https://d33wubrfki0l68.cloudfront.net/css/8e5437f699227c6ad2b9e44497f01613f322c9c8/styles.c2ec405de24325e77c4a.css">
+<style>
+    .app-loading {
+      position: fixed;
+      top: 47vh;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* .app-loading .logo img {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+    } */
+
+    .app-loading .spinner {
+      height: 75px;
+      width: 75px;
+      animation: rotate 2s linear infinite;
+      transform-origin: center center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .app-loading .spinner .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #2196f3;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+
+      50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+      }
+
+      100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+      }
+    }
+</style>
+<style>
+    .navbar-toggler[_ngcontent-uja-c5]{background:none;border:none}.navbar-toggler[_ngcontent-uja-c5]:active, .navbar-toggler[_ngcontent-uja-c5]:focus{outline:0}.navbar-toggler[_ngcontent-uja-c5]   .icon-bar[_ngcontent-uja-c5]{background:#7f7f7f;display:block;width:22px;height:2px;border-radius:1px;margin:4px 0;transition:all .25s}.navbar-toggler[_ngcontent-uja-c5]   .icon-bar[_ngcontent-uja-c5]:first-of-type{transform:rotate(45deg);transform-origin:10% 10%}.navbar-toggler[_ngcontent-uja-c5]   .icon-bar[_ngcontent-uja-c5]:nth-of-type(2){opacity:0;filter:alpha(opacity=0)}.navbar-toggler[_ngcontent-uja-c5]   .icon-bar[_ngcontent-uja-c5]:nth-of-type(3){transform:rotate(-45deg);transform-origin:10% 90%}.navbar-toggler.collapsed[_ngcontent-uja-c5]   .icon-bar[_ngcontent-uja-c5]:first-of-type{transform:rotate(0)}.navbar-toggler.collapsed[_ngcontent-uja-c5]   .icon-bar[_ngcontent-uja-c5]:nth-of-type(2){opacity:1;filter:alpha(opacity=100)}.navbar-toggler.collapsed[_ngcontent-uja-c5]   .icon-bar[_ngcontent-uja-c5]:nth-of-type(3){transform:rotate(0)}
+</style>
+<style>
+    #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .display-picture[_ngcontent-uja-c6]{border-radius:.75rem;width:280px;box-shadow:0 4px 8px 0 rgba(0,0,0,.1);transition:all .25s ease-in-out}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .primary-title[_ngcontent-uja-c6]{font-size:2.5rem}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .secondary-title[_ngcontent-uja-c6]{font-size:1.5rem;font-weight:400;text-shadow:0 2px 3px rgba(0,0,0,.3)}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .social-links[_ngcontent-uja-c6]   a[_ngcontent-uja-c6], #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .social-links[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]:visited{color:#2196f3;background:#fff;opacity:.9;padding:4.9px 6.5px;text-decoration:none;transition:all .25s ease-in-out}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .social-links[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]:hover, #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .social-links[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]:visited:hover{opacity:1;transform:scale(1.1);box-shadow:0 10px 20px rgba(0,0,0,.25)}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .social-links[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]:visited   svg[_ngcontent-uja-c6], #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .social-links[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]   svg[_ngcontent-uja-c6]{height:20px;width:20px}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .about-me[_ngcontent-uja-c6]   p[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]{color:inherit;font-style:italic}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]{display:inline-block;margin:0;padding:0;list-style:none}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   li[_ngcontent-uja-c6]{margin:6px auto}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   li[_ngcontent-uja-c6]   .title[_ngcontent-uja-c6]{font-weight:600}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   .svg-inline--fa[_ngcontent-uja-c6], #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   .value[_ngcontent-uja-c6]{color:#777}#home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   a[_ngcontent-uja-c6], #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]:focus, #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]:hover, #home[_ngcontent-uja-c6]   .main-card[_ngcontent-uja-c6]   .info-list[_ngcontent-uja-c6]   a[_ngcontent-uja-c6]:visited{color:inherit}
+
+</style>
+<style>
+    .timeline[_ngcontent-uja-c7]{border-left:2px solid #e0e0e0;padding:15px 0}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]{position:relative;padding:15px 20px 10px;margin-left:20px;margin-bottom:20px;background-color:#fff;border-left:2px solid var(--primary);box-shadow:0 0 4px rgba(0,0,0,.2)}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]:hover{box-shadow:0 4px 16px rgba(0,0,0,.2)}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]:last-child{margin-bottom:0}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]:before{content:"";display:inline-block;position:absolute;background-color:#fff;border-radius:10px;width:12px;height:12px;top:20px;left:-29px;border:2px solid var(--primary);z-index:2}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]:after{content:"";display:inline-block;position:absolute;background-color:var(--primary);border-radius:10px;width:29px;height:2px;top:25px;left:-29px;z-index:1}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]   .item-title[_ngcontent-uja-c7]{display:block;margin:0;font-size:16px;font-weight:600;line-height:1.2em}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]   .item-period[_ngcontent-uja-c7]{display:inline-block;font-size:12px;line-height:1.2em;color:var(--primary);margin-bottom:8px}.timeline[_ngcontent-uja-c7]   .timeline-item[_ngcontent-uja-c7]   .item-small[_ngcontent-uja-c7]{display:inline-block;font-size:12px;line-height:1.2em;color:#9e9e9e;margin-left:5px;margin-bottom:8px;padding-left:8px;border-left:1px solid #e0e0e0}.skills-info[_ngcontent-uja-c7]{margin-bottom:30px}.skills-info[_ngcontent-uja-c7]   h4[_ngcontent-uja-c7]{font-size:15px;font-weight:600;line-height:1em;position:relative;margin:20px 0 5px}.skill-container[_ngcontent-uja-c7]{background-color:#f5f5f5;border-radius:2px;border:1px solid #e0e0e0;box-sizing:border-box;height:12px;margin-bottom:12px;width:100%;overflow:hidden}.skill-percentage[_ngcontent-uja-c7]{background-color:var(--primary);border-radius:2px;height:10px;padding:0}
+</style>
+<style>
+    .slick-slider[_ngcontent-uja-c8]{box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;touch-action:pan-y}.slick-list[_ngcontent-uja-c8], .slick-slider[_ngcontent-uja-c8]{position:relative;display:block}.slick-list[_ngcontent-uja-c8]{overflow:hidden;margin:0;padding:0}.slick-list[_ngcontent-uja-c8]:focus{outline:none}.slick-list.dragging[_ngcontent-uja-c8]{cursor:pointer;cursor:hand}.slick-slider[_ngcontent-uja-c8]   .slick-list[_ngcontent-uja-c8], .slick-slider[_ngcontent-uja-c8]   .slick-track[_ngcontent-uja-c8]{transform:translateZ(0)}.slick-track[_ngcontent-uja-c8]{position:relative;top:0;left:0;display:block;margin-left:auto;margin-right:auto}.slick-track[_ngcontent-uja-c8]:after, .slick-track[_ngcontent-uja-c8]:before{display:table;content:""}.slick-track[_ngcontent-uja-c8]:after{clear:both}.slick-loading[_ngcontent-uja-c8]   .slick-track[_ngcontent-uja-c8]{visibility:hidden}.slick-slide[_ngcontent-uja-c8]{display:none;float:left;height:100%;min-height:1px}[dir=rtl][_ngcontent-uja-c8]   .slick-slide[_ngcontent-uja-c8]{float:right}.slick-slide[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{display:block}.slick-slide.slick-loading[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{display:none}.slick-slide.dragging[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{pointer-events:none}.slick-initialized[_ngcontent-uja-c8]   .slick-slide[_ngcontent-uja-c8]{display:block}.slick-loading[_ngcontent-uja-c8]   .slick-slide[_ngcontent-uja-c8]{visibility:hidden}.slick-vertical[_ngcontent-uja-c8]   .slick-slide[_ngcontent-uja-c8]{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden[_ngcontent-uja-c8]{display:none}.service-block[_ngcontent-uja-c8]{text-align:center;padding:0;margin-bottom:30px}.service-image[_ngcontent-uja-c8]{width:100px;height:100px;background-color:#fafafa;border:1px solid #ccc;border-radius:100px;margin:0 auto;text-align:center;transition:all .25s ease-in-out}.service-image[_ngcontent-uja-c8]:hover{transform:translateY(-7px);box-shadow:0 4px 16px rgba(0,0,0,.35)}.service-block[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{max-width:100px;height:60px;margin:20px 0}.service-block[_ngcontent-uja-c8]   h4[_ngcontent-uja-c8]{font-size:17px;padding:20px 0 0;font-weight:600}.service-icon[_ngcontent-uja-c8]{font-size:48px;line-height:80px;color:#fff;background-color:#2196f3;width:80px;height:80px;border-radius:100px;margin:5px 0 0;transition:all .25s ease-in-out}.service-icon[_ngcontent-uja-c8]:hover{transform:translateY(-7px);box-shadow:0 4px 16px rgba(0,0,0,.2)}.clients-container[_ngcontent-uja-c8]{width:100%;text-align:center;overflow:hidden}.clients-container[_ngcontent-uja-c8]   div[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{max-width:80px;margin:none!important}.client-block[_ngcontent-uja-c8]{text-align:center;padding:5px 0;opacity:.9;transition:all .25s ease-in-out}.client-block[_ngcontent-uja-c8]:hover{opacity:.75}.client-block[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{max-width:100px;cursor:pointer}.testimonials[_ngcontent-uja-c8]{width:100%}.testimonial-item[_ngcontent-uja-c8]{width:100%;margin:0 auto}.testimonial-credits[_ngcontent-uja-c8]{display:table;position:relative;margin:0 auto;text-align:center}.testimonial-author[_ngcontent-uja-c8]{display:inline-block;font-size:15px;font-family:Montserrat,sans-serif;color:#212121;margin:0;font-weight:400}.testimonial-author-info[_ngcontent-uja-c8]{display:table-cell;position:relative;padding-left:12px;vertical-align:top;text-align:left}.testimonial-content[_ngcontent-uja-c8]{width:100%;height:auto;margin-top:-25px}.testimonial-content[_ngcontent-uja-c8]   .testimonial-text[_ngcontent-uja-c8]{padding:2.2em 1.2em 1.5em;font-style:italic;border:1px solid #e0e0e0;border-top:2px solid #2196f3;width:100%;position:relative;margin:0;z-index:-1}.testimonial-content[_ngcontent-uja-c8]   .testimonial-text[_ngcontent-uja-c8]   p[_ngcontent-uja-c8]{margin:0}.testimonial-picture[_ngcontent-uja-c8]{display:table-cell;width:80px;height:80px;background-color:#fcfcfc;border-radius:100px;margin:0;z-index:1}.testimonial-picture[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{width:100%;border:1px solid #000;box-shadow:0 4px 8px 0 rgba(0,0,0,.2);border-radius:100px}.testimonial-firm[_ngcontent-uja-c8]{font-size:10px;line-height:1.5em;color:#9e9e9e;margin:0;text-transform:uppercase;font-style:italic;font-weight:lighter}.client-testimonials[_ngcontent-uja-c8]   .card[_ngcontent-uja-c8]{border-top:2px solid #2196f3}.client-testimonials[_ngcontent-uja-c8]   .card[_ngcontent-uja-c8]   .testi-title[_ngcontent-uja-c8]{position:relative;top:-70px;margin-bottom:-75px}.client-testimonials[_ngcontent-uja-c8]   .card[_ngcontent-uja-c8]   .testi-title[_ngcontent-uja-c8]   img[_ngcontent-uja-c8]{width:75px;border-radius:50%;border:1px solid #ccc}.client-testimonials[_ngcontent-uja-c8]   .card[_ngcontent-uja-c8]   .testi-title[_ngcontent-uja-c8]   h5[_ngcontent-uja-c8]{font-size:1.15rem}.client-testimonials[_ngcontent-uja-c8]   .card[_ngcontent-uja-c8]   .testi-title[_ngcontent-uja-c8]   h6[_ngcontent-uja-c8]{color:#9e9e9e;font-style:italic}
+
+</style>
+<style></style>
+<style>
+    .map-holder[_ngcontent-uja-c10]{height:180px;border-radius:6px;border:1px solid #ccc;overflow:hidden}.map-holder[_ngcontent-uja-c10]   .map[_ngcontent-uja-c10]{width:100%;height:180px}#gitMessage[_ngcontent-uja-c10]{min-height:130px}
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div _ngcontent-uja-c7="" id="resume" class="container">
+    <div _ngcontent-uja-c7="" class="card main-card pb-3">
+        <div _ngcontent-uja-c7="" class="card-header p-5 mb-0">
+            <div _ngcontent-uja-c7="" class="text-center">
+                <h1 _ngcontent-uja-c7="" class="primary-title m-0">Nguyen  Long  Vu</h1>
+            </div>
+        </div>
+        <div _ngcontent-uja-c7="" class="card-body mt-3 p-5">
+            <div _ngcontent-uja-c7="" class="row">
+                <div _ngcontent-uja-c7="" class="col-12 col-lg-6 mb-5 mb-lg-0 pr-lg-4" style="margin:auto">
+                    <div _ngcontent-uja-c7="" class="block">
+                        <div _ngcontent-uja-c7="" class="block-title">
+                            <h5 _ngcontent-uja-c7="" class="font-weight-bold mb-3">Education</h5>
+                        </div>
+                        <div _ngcontent-uja-c7="" class="timeline">
+                            <div _ngcontent-uja-c7="" class="timeline-item rounded">
+                                <h4 _ngcontent-uja-c7="" class="item-title">Graduated HighSchool</h4>
+                                <span _ngcontent-uja-c7="" class="item-period"><a href="https://thpttanhiep.net/">Tan Hiep HighSchool</a></span>
+                                <span _ngcontent-uja-c7="" class="item-small">2019</span>
+                            </div>
+                            <div _ngcontent-uja-c7="" class="timeline-item rounded">
+                                <h4 _ngcontent-uja-c7="" class="item-title">Studied Infomation Technology</h4>
+                                <span _ngcontent-uja-c7="" class="item-period"><a href="https://www.fit.hcmus.edu.vn/vn/">HCM University of Science</a></span>
+                                <span _ngcontent-uja-c7="" class="item-small">2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div _ngcontent-uja-c7="" class="row">
+                <div _ngcontent-uja-c7="" class="col-12 col-lg-6 pr-lg-4" style="margin: auto">
+                <div _ngcontent-uja-c7="" class="block">
+                <div _ngcontent-uja-c7="" class="block-title">
+                    <h5 _ngcontent-uja-c7="" class="font-weight-bold mb-3"> Coding <span _ngcontent-uja-c7="" class="text-primary">Skills</span></h5>
+                </div>
+                <div _ngcontent-uja-c7="" class="skills-info">
+                    <h4 _ngcontent-uja-c7="">C++</h4>
+                    <div _ngcontent-uja-c7="" class="skill-container">
+                        <div _ngcontent-uja-c7="" class="skill-percentage" style="width: 2%;">
+                        </div>
+                    </div>
+                    <h4 _ngcontent-uja-c7="">Python</h4>
+                    <div _ngcontent-uja-c7="" class="skill-container">
+                        <div _ngcontent-uja-c7="" class="skill-percentage" style="width: 1.5%;"></div>
+                    </div>
+                    <h4 _ngcontent-uja-c7="">HTML & CSS</h4>
+                    <div _ngcontent-uja-c7="" class="skill-container">
+                        <div _ngcontent-uja-c7="" class="skill-percentage" style="width: 1.5%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div></div></div></div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

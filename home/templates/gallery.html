@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %} Gallery {% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block content %}
+  <div class="wrapper1">
+    <!-- filter Items -->
+    <nav>
+      <div class="items">
+        <span class="item active" data-name="all">All</span>
+        <span class="item" data-name="bag">Tag 1</span>
+        <span class="item" data-name="shoe">Tag 2</span>
+        <span class="item" data-name="watch">Tag 3</span>
+        <span class="item" data-name="camera">Tag 4</span>
+        <span class="item" data-name="headphone">Tag 5</span>
+      </div>
+    </nav>
+    <!-- filter Images -->
+    <div class="gallery">
+      {% for image in images %}
+        <div class="image" data-name="bag"><span><img src="static/gallery/{{image.filename}}" alt=""></span></div>
+        {% endfor %}
+    </div>
+  </div>
+  <!-- fullscreen img preview box -->
+  <div class="preview-box">
+    <div class="details">
+      <span class="title">Image Category: <p></p></span>
+      <span class="icon fa fa-close"></span>
+    </div>
+    <div class="image-box"><img src="" alt=""></div>
+  </div>
+  <div class="shadow"></div>
+  
+  
+  <script src="{% static 'js/gallery.js' %}"></script>
+
+  {% endblock %}
