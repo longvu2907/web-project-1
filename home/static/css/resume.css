@@ -1,3 +1,59 @@
 .content {
     padding-top:0;
 }
+.main-card{
+    z-index: 1;
+}
+.main-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    border: none;
+    box-shadow: 15px 10px 25px 0px #95e1f875!important;
+    color: white;
+}
+.main-card .card-header {
+    background-color: #2196f378!important;
+    color: #fff;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+.timeline[_ngcontent-uja-c7] .timeline-item[_ngcontent-uja-c7] {
+    position: relative;
+    padding: 15px 20px 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: #88e8f054!important;
+    border-left: 2px solid var(--primary);
+    box-shadow: 0 0 4px rgb(0 0 0 / 20%);
+}
+
+.timeline a {
+    color: #00fff3!important;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.timeline[_ngcontent-uja-c7] .timeline-item[_ngcontent-uja-c7] .item-small[_ngcontent-uja-c7] {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.2em;
+    color: white!important;
+    margin-left: 5px;
+    margin-bottom: 8px;
+    padding-left: 8px;
+    border-left: 1px solid #e0e0e0;
+}
+.text-primary {
+    color: #64ebf9!important;
+}
+.skill-percentage[_ngcontent-uja-c7] {
+    background-color: #00e858!important;
+    border-radius: 2px;
+    height: 10px;
+    padding: 0;
+}
+.card {
+    background-color: #00408570!important;
+}

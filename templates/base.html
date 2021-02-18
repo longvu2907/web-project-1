@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="icon" type="image/png" href="{% static 'images/icons/chelsea.png' %}"/>
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
@@ -26,14 +26,22 @@
             </div>
             <ul class="list-items">
                 <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>Home</a></li>
-                <li><a href="{% url 'gallery' %}"><i class="fa fa-image"></i>Gallery</a></li>
                 <li><a href="{% url 'resume' %}"><i class="fa fa-user"></i>About</a></li>
                 <li><a href="{% url 'contact' %}"><i class="fa fa-phone"></i>Contact</a></li>	
+                {% if login_status == True %}
+                <li><a href="{% url 'gallery' %}"><i class="fas fa-images"></i>Gallery</a></li>
+                {% if admin == "True" %}
+                <li><a href="{% url 'add_images' %}"><i class="fas fa-file-upload"></i>Add Image</a></li>
+                <li><a href="{% url 'profile' %}"><i class="fas fa-user-edit"></i>Profile</a></li>
+                {% endif %}
+                <li><a href="{% url 'logout' %}"><i class="fa fa-users"></i>Logout</a></li>
+                {% else %}
                 <li><a href="{% url 'login' %}"><i class="fa fa-users"></i>Login</a></li>
+                {% endif %}
                 <div class="icons">
-                    <a href="http://fb.com/longvu2907"><i class="fa fa-facebook-f"></i></a>
-                    <a href="http://github.com/longvu2907"><i class="fa fa-github"></i></a>
-                    <a href="https://www.youtube.com/channel/UCqISnzybvOkDOuBkZN3lCqg"><i class="fa fa-youtube"></i></a>
+                    <a href="http://fb.com/longvu2907"><i class="fab fa-facebook-f"></i></a>
+                    <a href="http://github.com/longvu2907"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/vu-nguyen-26a5271bb/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </ul>
         </nav>

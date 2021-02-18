@@ -12,10 +12,10 @@ def login(request):
                 if username == user.username:
                     if password == user.password:
                         check = "Đăng nhập thành công"
-                        date = user.date
-                        response = render(request, 'login.html', {'check': check,'date': date})
+                        response = redirect('/home/')
                         response.set_cookie('username', username)
                         response.set_cookie('password', password)
+                        response.set_cookie('admin', user.is_admin)
                         return response
                     else:
                         check = "Sai tài khoản hoặc mật khẩu"
@@ -31,10 +31,9 @@ def login(request):
 def signup(request):
     cookies = request.COOKIES
     users = User.objects.all()
-    test = users[2]
     username = request.POST.get('username', False)
     password = request.POST.get('pass', False)
-    repassword = request.POST.get('repass', False)   
+    repassword = request.POST.get('repass', False)      
     check = ''
     if request.method == 'POST':
         if repassword == password:
@@ -54,16 +53,21 @@ def signup(request):
                 newUser.save()       
         else:
             check = "Mật khẩu không trùng khớp"
-    context = {'check':check, 'cookies':cookies, 'image':test.file}
+    context = {'check':check, 'cookies':cookies}
     return render(request, 'signup.html', context)
 
 def logout(request):
     cookies = request.COOKIES
-    if 'username' and 'password' in cookies:
+    if is_login(cookies):
         response = redirect('/accounts/login/')
         response.delete_cookie('username')
         response.delete_cookie('password')
+        response.delete_cookie('admin')
         return response
     else: 
         return redirect('/accounts/login/')
 
+def is_login(cookies):
+    if 'username' and 'password' in cookies:
+        return True
+    return False

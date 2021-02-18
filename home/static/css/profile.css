@@ -1,0 +1,133 @@
+*{
+    font-family: 'Hind Guntur', sans-serif;
+}
+.content{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-size: 35px;
+}
+.edit{
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.profile-wrapper{
+    width: 310px;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 15px 10px 25px 0px #95e1f875;
+    background: #00408570;
+    color: white;
+    z-index: 1; 
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+.photo-wrap {
+    margin: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(
+90deg
+, #78f6ee, #0b82d7f7);
+    padding: 7px;
+}
+.photo-upload{
+    width:auto;
+    height: 100%;
+    border-radius: 50%;
+    width: 100%;
+}
+input{
+    border-radius: 15px;
+    border: 1px solid #b7b7b7;
+    padding: 5px 5px 5px 10px;
+    font-size: 18px;
+    transition: 0.2s;
+    margin-top: 20px;
+    border-style: none;
+    border-radius: 30px;
+    height: 30px;
+    text-align: center;
+    width: 70%;
+    font-size: 20px;
+    outline: none;
+}
+
+button {
+    position: relative;
+    color: #1b1967b8;
+    letter-spacing: 1px;
+    margin: 20px;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    background: #63b9d3;
+}
+button:hover {
+    left: 0;
+    color: #fff;
+    width: 180px;
+    box-shadow: 0px 0px 20px 0px #63b9d3;
+}
+.save {
+    font-weight: 600;
+    left: -20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 20px;
+    box-shadow: 20px 0px 40px 0px #63b9d3;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    transition: all 0.5s ease;
+}
+
+.material-icons {
+    position: absolute;
+    top: 2vh;
+    left: 90vw;
+    margin-bottom: 20px;
+    cursor: pointer;
+    z-index: 1;
+    color: white;
+    font-size: 30px!important;
+}
+
+.material-icons:hover {
+    color:rgba(131, 208, 253, 0.644);
+}
+
+#btn1:checked ~ .display{
+    transform: rotate3d(1, 0, 0, 180deg);
+    position: absolute;
+    opacity: 0;
+}
+#btn1:checked ~ .edit {
+    transform: rotate3d(1, 0, 0, 360deg);
+    position: relative;
+    opacity: 1;
+    display: flex;
+}
+
+.photo-upload:hover {
+    opacity: 0.5;
+}

@@ -99,9 +99,9 @@
   color: #000000;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 500;
   height: 100%;
   width: 100%;
+  font-weight: 1;
 }
 #sidebar .list-items li a{
   font-size: 25px;

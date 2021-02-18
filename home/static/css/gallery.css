@@ -120,6 +120,7 @@
 }
 .image-box img{
   width: 100%;
+  max-height: 80vh;
   border-radius: 0 0 3px 3px;
 
 }
@@ -164,4 +165,7 @@
   .gallery .image img{
     height: 130px;
   }
+}
+#particles-js{
+  z-index:-1;
 }

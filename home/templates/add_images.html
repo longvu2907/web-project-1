@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Upload Image{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/add_images.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
+{% endblock %}
+  
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="category-input"><input type="text" class="category" name="category" placeholder="{{category}}" autocomplete="off"></div>
+    <div class="drag-area">
+    <label for="upload"><i class="fas fa-cloud-upload-alt"></i></label></div>
+    <input type="file" name="image" id="upload">
+    <input type="submit" class="submit" name="submit" />
+</form>
+    
+  <script src="{% static 'js/add_images.js' %}"></script>
+
+{% endblock %}

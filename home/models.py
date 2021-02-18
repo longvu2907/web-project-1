@@ -5,8 +5,8 @@ import os
 
 class Image(models.Model):
     id = models.AutoField(primary_key=True)
-    category = models.CharField(max_length=100,blank="none")
-    image = models.ImageField(upload_to="home/static/gallery", blank=True)
+    category = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="gallery", blank=False)
     date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return os.path.basename(self.image.name)

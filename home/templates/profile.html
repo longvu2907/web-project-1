@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<input type="checkbox" id="btn1" hidden>
+<label for="btn1">
+    <i class="material-icons">settings</i>
+</label>
+
+<div class="profile-wrapper display">
+    <h1 class="title" >Profile</h1>
+    <div class="photo-wrap">
+        <img class="photo-upload" src="{{ user.avatar.url }}" alt="">
+    </div>
+    <h1>{{user.name}}</h1>
+</div>
+<div class="profile-wrapper edit">
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1 class="title" >Edit</h1>
+        <div class="photo-wrap">
+            <label for="upload"><img class="photo-upload" src="{{ user.avatar.url }}"></label>
+            <input type="file" name="avatar" id="upload" hidden>
+        </div>
+        <input type="text" name="name" placeholder="{{user.name}}">
+        <button type="submit" class="save">Save </button>
+    </form>
+</div>
+{% endblock %}
